@@ -1,0 +1,3 @@
+[submodule "iospec2"]
+	path = iospec2
+	url = git://github.com/quag/iospec2.git
