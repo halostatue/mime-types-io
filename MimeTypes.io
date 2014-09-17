@@ -93,7 +93,7 @@ MimeTypesCollection := Object clone do(
       if(id isKindOf(Regex),
         _match(id)
         ,
-        typeVariants at(MimeType simplifiedFor(id))
+        typeVariants at(MimeType simplify(id))
       )
     )
 

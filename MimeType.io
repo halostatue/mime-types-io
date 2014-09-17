@@ -8,7 +8,7 @@ if(nil hasSlot("asJson") not, nil asJson := method("null"))
 MimeType := Object clone do(
   VERSION := method("1.0")
 
-  simplifiedFor := method(value,
+  simplify := method(value,
     if(MEDIA_TYPE_RE matchesIn(value asString) count isNil,
       InvalidContentType(value)
     )
@@ -16,6 +16,7 @@ MimeType := Object clone do(
     value split("/") map(part,
       part := part lowercase
       if(part findSeq("x-") == 0, part := part replaceFirstSeq("x-", "") lowercase)
+      if(part findSeq("X-") == 0, part := part replaceFirstSeq("X-", "") lowercase)
       part
     ) join("/")
   )
@@ -48,7 +49,7 @@ MimeType := Object clone do(
     if(other hasSlot(simplified),
       return(simplified == other simplified)
       ,
-      return(simplified == MimeType simplifiedFor(other))
+      return(simplified == MimeType simplify(other))
     )
   )
 
@@ -63,8 +64,8 @@ MimeType := Object clone do(
 
   isBinary := method(BINARY_ENCODINGS contains(self encoding))
   isAscii := method(isBinary not)
-  isSignature := method(self signature not not)
-  isComplete := method(self extensions isNotEmpty)
+  isSignature := method(signature not not)
+  isComplete := method(extensions isNotEmpty)
 
   urls := method(
     xrefs map(xrefType, values,
@@ -126,7 +127,7 @@ MimeType := Object clone do(
     if(other hasSlot(contentType),
       return contentType lowercase compare(other contentType lowercase)
       ,
-      return simplified compare(MimeType simplifiedFor(other asString))
+      return simplified compare(MimeType simplify(other asString))
     )
   )
 
@@ -188,7 +189,7 @@ MimeType := Object clone do(
     self contentType := value
     self rawMediaType := matches captures at(1)
     self rawSubType := matches captures at(2)
-    self simplified := MimeType simplifiedFor(value)
+    self simplified := MimeType simplify(value)
 
     matches := MEDIA_TYPE_RE matchesIn(self simplified) last
     self mediaType := matches captures at(1)
@@ -236,6 +237,7 @@ MimeType := Object clone do(
   initWithList := method(value,
     setContentType(value at(0))
     setExtensions(list(value slice(1)) flatten)
+    setEncoding
     self
   )
 )
