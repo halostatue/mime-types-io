@@ -1,19 +1,18 @@
 # mime-types-io
 
-| ---- | -------------------------------------------- |
-| code | [https://github.com/halostatue/mime-types-io/][code] |
-| bugs | [https://github.com/halostatue/mime-types-io/issues][issues] |
+* [https://github.com/mime-types/io-mime-types/][code]
+* [https://github.com/mime-types/io-mime-types/issues][issues]
 
 ## Description
 
-The `mime-types-io` library provides a library and registry for information
+The `io-mime-types` library provides a library and registry for information
 about MIME content type definitions. It can be used to determine defined
 filename extensions for MIME types, or to use filename extensions to look up
 the likely MIME type definitions.
 
 MIME content types are used in MIME-compliant communications, as in e-mail or
 HTTP traffic, to indicate the type of content which is transmitted. The
-`mime-types-io` library provides the ability for detailed information about
+`io-mime-types` library provides the ability for detailed information about
 MIME entities (provided as an enumerable collection of MimeType objects) to be
 determined and used programmatically. There are many types defined by RFCs and
 vendors, so the list is long but by definition incomplete; don't hesitate to
@@ -23,7 +22,7 @@ collection of registrations (see below for the link), RFCs, and W3C
 recommendations.
 
 This is release 1.0, ported from the Ruby release
-([halostatue/mime-types][hmt]).
+([mime-types/ruby-mime-types][rmt]).
 
 ## Synopsis
 
@@ -49,16 +48,16 @@ about files). A MimeType stores the known information about one MIME type.
                                       # => "appl/zip"
 ```
 
-## `mime-types-io` Modified Semantic Versioning
+## `io-mime-types` Modified Semantic Versioning
 
-The `mime-types-io` library has one version number, but this single version
+The `io-mime-types` library has one version number, but this single version
 number tracks both API changes and registry data changes; this is not wholly
 compatible with all aspects of [Semantic Versioning][semver]; removing a MIME
 type from the registry *could* be considered a breaking change under some
 interpretations of semantic versioning (as lookups for that particular type
 would no longer work by default).
 
-`mime-types-io` uses a modified semantic versioning scheme. Given the version
+`io-mime-types` uses a modified semantic versioning scheme. Given the version
 MAJOR.MINOR:
 
 1. If an incompatible API (code) change is made, the MAJOR version will be
@@ -76,16 +75,16 @@ MAJOR.MINOR:
 In practical terms, there should be a MINOR release roughly monthly to track
 updated or changed MIME types from the official IANA registry. This does not
 indicate when new API features have been added, but all minor versions of
-`mime-types-io` 1.x will be backwards compatible; the interfaces marked deprecated
-will not be removed until at least `mime-types-io` 2.x or possibly later.
+`io-mime-types` 1.x will be backwards compatible; the interfaces marked deprecated
+will not be removed until at least `io-mime-types` 2.x or possibly later.
 
 ## Licence
 
-`mime-types-io` is under the MIT licence. See [Licence][licence].
+`io-mime-types` is under the MIT licence. See [Licence][licence].
 
-[code]: https://github.com/halostatue/mime-types-io/
-[issues]: https://github.com/halostatue/mime-types-io/issues
-[hmt]: https://github.com/halostatue/mime-types/
+[code]: https://github.com/mime-types/io-mime-types/
+[issues]: https://github.com/mime-types/io-mime-types/issues
+[rmt]: https://github.com/mime-types/ruby-mime-types/
 [contributing]: Contributing.md
 [licence]: Licence.md
 [semver]: http://semver.org/

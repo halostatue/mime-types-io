@@ -1,10 +1,10 @@
-== Licence
+## Licence
 
 This software is available under the MIT License.
 
 * Copyright 2014 Austin Ziegler.
 
-=== MIT License
+### MIT License
 
 This software and associated documentation files (the "Software"), to deal in
 the Software without restriction, including without limitation the rights to

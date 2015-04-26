@@ -1,9 +1,9 @@
 ## Contributing
 
-I value any contribution to `mime-types-io` you can provide: a bug report, a
+I value any contribution to `io-mime-types` you can provide: a bug report, a
 feature request, or code contributions.
 
-`mime-types-io` is a relatively new codebase, but is based on my Ruby
+`io-mime-types` is a relatively new codebase, but is based on my Ruby
 implementation, and I have a few guidelines:
 
 * Code changes *will* *not* be accepted without tests. The test suite is
@@ -20,7 +20,7 @@ implementation, and I have a few guidelines:
 === Adding or Modifying MIME Types
 
 The mime-types registry is loaded from a JSON file in +data+, which has been
-copied from the Ruby source at [halostatue/mime-types][hmt].  It is not
+copied from the Ruby source at [mime-types/ruby-mime-types][rmt].  It is not
 considered editable and cannot be compared in a pull request. New or modified
 MIME types should be edited in the appropriate YAML file under `type-lists` in
 the Ruby source. The format is as shown below for the `application/xml` MIME
@@ -42,7 +42,7 @@ type in `type-lists/application.yml`.
 
 There are other fields that can be added, matching the fields discussed in the
 documentation for MIME::Type. Pull requests for MIME types on
-[halostatue/mime-types][hmt] should just contain the changes to the YAML files
+[mime-types/ruby-mime-types][rmt] should just contain the changes to the YAML files
 for the new or modified MIME types; I will convert the YAML files to JSON
 prior to a new release. I would rather not have to verify that the JSON
 matches the YAML changes, which is why it is not necessary to convert for the
@@ -50,7 +50,7 @@ pull request.
 
 === Test Dependencies
 
-`mime-types-io` uses [quag/iospec2][iospec2] for testing and has been
+`io-mime-types` uses [quag/iospec2][iospec2] for testing and has been
 submoduled here. There is a `Makefile` that will ensure that everything works
 and run `iospec`.
 
@@ -59,14 +59,14 @@ and run `iospec`.
 Here's the most direct way to get your work merged into the project:
 
 * Fork the project.
-* Clone down your fork (`git clone git://github.com/<username>/mime-types-io.git`).
+* Clone down your fork (`git clone git://github.com/<username>/io-mime-types.git`).
 * Create a topic branch to contain your change (`git checkout -b
   my_awesome_feature`).
 * Hack away, add tests. Not necessarily in that order.
 * Make sure everything still passes by running +rake+.
 * If necessary, rebase your commits into logical chunks, without errors.
 * Push the branch up (`git push origin my_awesome_feature`).
-* Create a pull request against `halostatue/mime-types-io` and describe what
+* Create a pull request against `mime-types/io-mime-types` and describe what
   your change does and the why you think it should be merged.
 
 === Contributors
@@ -75,4 +75,4 @@ Here's the most direct way to get your work merged into the project:
 
 [iospec2]: https://github.com/quag/iospec2
 [qcm]: http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html
-[hmt]: https://github.com/halostatue/mime-types
+[rmt]: https://github.com/mime-types/ruby-mime-types
